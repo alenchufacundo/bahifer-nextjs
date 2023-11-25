@@ -15,28 +15,74 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { useState } from "react";
+import React, { useState } from "react";
+import {
+  Menu,
+  MenuItem,
+  ThemeProvider,
+  createTheme,
+  useMediaQuery,
+} from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["Inicio", "Productos", "Nosotros", "Contacto"];
+const logoMin = "/assets/logo/logoMin.png";
+const productos = [
+  "Productos1",
+  "Productos1",
+  "Productos1",
+  "Productos1",
+  "Productos1",
+];
 
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const handleMenuOpen = (event) => {
+    if (event) {
+      setAnchorEl(event.currentTarget);
+    }
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#90caf9", // Cambia este color según tus preferencias
+      },
+    },
+  });
+
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+    <Box sx={{ textAlign: "center" }}>
+      <Box sx={{ my: 2, width: 100, height: 100 }}>
+        <img src={logoMin} alt="" style={{ width: "100px", height: "100px" }} />
+      </Box>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem
+            key={item}
+            disablePadding
+            onClick={(event) => {
+              if (item === "Productos") {
+                handleMenuOpen(event);
+              } else {
+                handleDrawerToggle(); // Cierra el menú principal solo si no es "Productos"
+              }
+            }}
+          >
             <ListItemButton sx={{ textAlign: "center" }}>
               <ListItemText primary={item} />
             </ListItemButton>
@@ -50,59 +96,102 @@ function NavBar(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+    <ThemeProvider theme={darkTheme}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar component="nav" position="fixed">
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block" },
+                width: "100px",
+                height: "100px",
+              }}
+            >
+              <img
+                src={logoMin}
+                alt=""
+                style={{ width: "100px", height: "100px" }}
+              />
+            </Box>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {navItems.map((item) => {
+                if (item === "Productos") {
+                  return (
+                    <React.Fragment key={item}>
+                      <Button
+                        key={item}
+                        aria-controls="productos-menu"
+                        aria-haspopup="true"
+                        sx={{ color: "#fff" }}
+                        onClick={handleMenuOpen}
+                      >
+                        {item}
+                      </Button>
+                      <Menu
+                        id="productos-menu"
+                        anchorEl={anchorEl}
+                        anchorOrigin={
+                          isMobile
+                            ? { vertical: "top", horizontal: "right" }
+                            : { vertical: "bottom" }
+                        }
+                        open={Boolean(anchorEl)}
+                        onClose={handleMenuClose}
+                      >
+                        {productos.map((producto, index) => (
+                          <MenuItem key={index} onClick={handleMenuClose}>
+                            {producto}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </React.Fragment>
+                  );
+                }
+                return (
+                  <Button key={item} sx={{ color: "#fff" }}>
+                    {item}
+                  </Button>
+                );
+              })}
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <nav>
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
+            {drawer}
+          </Drawer>
+        </nav>
+        <Box component="main" sx={{ p: 3 }}>
+          <Toolbar />
+        </Box>
       </Box>
-    </Box>
+    </ThemeProvider>
   );
 }
 

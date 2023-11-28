@@ -27,6 +27,7 @@ import {
 const drawerWidth = 240;
 const navItems = ["Inicio", "Productos", "Nosotros", "Contacto"];
 const logoMin = "/assets/logo/logoMin.png";
+const logoCompleto = "/assets/logo/logoCompleto.png";
 const productos = [
   "Productos1",
   "Productos1",
@@ -66,8 +67,12 @@ function NavBar(props) {
 
   const drawer = (
     <Box sx={{ textAlign: "center" }}>
-      <Box sx={{ my: 2, width: 100, height: 100 }}>
-        <img src={logoMin} alt="" style={{ width: "100px", height: "100px" }} />
+      <Box sx={{ my: 2, width: 200, height: 100, margin: "auto" }}>
+        <img
+          src={logoCompleto}
+          alt=""
+          style={{ width: "100%", height: "100%" }}
+        />
       </Box>
       <Divider />
       <List>
@@ -97,7 +102,7 @@ function NavBar(props) {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", height: isMobile && "50px" }}>
         <CssBaseline />
         <AppBar component="nav" position="fixed">
           <Toolbar>
@@ -119,9 +124,9 @@ function NavBar(props) {
               }}
             >
               <img
-                src={logoMin}
+                src={logoCompleto}
                 alt=""
-                style={{ width: "100px", height: "100px" }}
+                style={{ width: "200px", height: "100px" }}
               />
             </Box>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>

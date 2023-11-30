@@ -29,11 +29,16 @@ const navItems = ["Inicio", "Productos", "Nosotros", "Contacto"];
 const logoMin = "/assets/logo/logoMin.png";
 const logoCompleto = "/assets/logo/logoCompleto.png";
 const productos = [
-  "Productos1",
-  "Productos1",
-  "Productos1",
-  "Productos1",
-  "Productos1",
+  "Abrasivos",
+  "Accesorios",
+  "Calisuares de expansión",
+  "Herramientas Calzadas",
+  "Herramientas medición ASIMETO",
+  "Insertos ISCAR",
+  "Machos Rectificados Uranga",
+  "Mechas Fresas y Limas",
+  "Porta insertos",
+  "Tornos convencionales",
 ];
 
 function NavBar(props) {

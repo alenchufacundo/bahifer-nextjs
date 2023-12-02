@@ -13,7 +13,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import React, { useState } from "react";
 import {
@@ -23,29 +22,18 @@ import {
   createTheme,
   useMediaQuery,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { navItems, productos, routes } from "../constants/utils";
 
 const drawerWidth = 240;
-const navItems = ["Inicio", "Productos", "Nosotros", "Contacto"];
-const logoMin = "/assets/logo/logoMin.png";
 const logoCompleto = "/assets/logo/logoCompleto.png";
-const productos = [
-  "Abrasivos",
-  "Accesorios",
-  "Calisuares de expansión",
-  "Herramientas Calzadas",
-  "Herramientas medición ASIMETO",
-  "Insertos ISCAR",
-  "Machos Rectificados Uranga",
-  "Mechas Fresas y Limas",
-  "Porta insertos",
-  "Tornos convencionales",
-];
 
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const isMobile = useMediaQuery("(max-width:600px)");
+  const router = useRouter();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -59,6 +47,11 @@ function NavBar(props) {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleClickRoute = (route) => {
+    console.log("click");
+    router.replace(route);
   };
 
   const darkTheme = createTheme({
@@ -86,6 +79,18 @@ function NavBar(props) {
             key={item}
             disablePadding
             onClick={(event) => {
+              {
+                console.log(item);
+              }
+              if (
+                item === "Inicio" ||
+                item === "Nosotros" ||
+                item === "Contacto"
+              ) {
+                console.log("entro");
+                console.log(item);
+                router.replace("/");
+              }
               if (item === "Productos") {
                 handleMenuOpen(event);
               } else {
@@ -136,6 +141,15 @@ function NavBar(props) {
             </Box>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => {
+                if (
+                  item === "Inicio" ||
+                  item === "Nosotros" ||
+                  item === "Contacto"
+                ) {
+                  console.log("entro");
+                  console.log(item);
+                  router.replace("/");
+                }
                 if (item === "Productos") {
                   return (
                     <React.Fragment key={item}>
@@ -151,16 +165,25 @@ function NavBar(props) {
                       <Menu
                         id="productos-menu"
                         anchorEl={anchorEl}
-                        anchorOrigin={
-                          isMobile
-                            ? { vertical: "top", horizontal: "right" }
-                            : { vertical: "bottom" }
-                        }
+                        anchorOrigin={{
+                          vertical: "bottom", // Establece el origen del ancla en la parte inferior
+                          horizontal: "center", // Centra horizontalmente
+                        }}
+                        transformOrigin={{
+                          vertical: "top", // Establece el origen del menú en la parte superior
+                          horizontal: "center", // Centra horizontalmente
+                        }}
                         open={Boolean(anchorEl)}
                         onClose={handleMenuClose}
                       >
                         {productos.map((producto, index) => (
-                          <MenuItem key={index} onClick={handleMenuClose}>
+                          <MenuItem
+                            key={index}
+                            onClick={() =>
+                              handleClickRoute(`/${routes[index]}`)
+                            }
+                          >
+                            {console.log(producto)}
                             {producto}
                           </MenuItem>
                         ))}

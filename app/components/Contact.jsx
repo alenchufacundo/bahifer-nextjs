@@ -4,7 +4,7 @@ const localImage = "/assets/images/local/local.jpg";
 
 export const Contact = () => {
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="lg">
       <Grid container spacing={3}>
         {/* Foto del local */}
         <Grid item xs={12}>
@@ -17,7 +17,7 @@ export const Contact = () => {
 
         {/* Contenedor con márgenes para la tarjeta de contacto y el mapa */}
         <Grid item xs={12}>
-          <Container maxWidth="xl" sx={{ height: "350px" }}>
+          <Container maxWidth="xl" sx={{ padding: "10px 0" }}>
             <Grid
               container
               spacing={3}
@@ -28,25 +28,25 @@ export const Contact = () => {
                 <Paper
                   elevation={3}
                   style={{
-                    height: "100%",
+                    height: "300px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     flexDirection: "column",
                     width: "100%",
+                    textAlign: "center",
                   }}
                 >
                   <Typography variant="h5" gutterBottom>
-                    Información de contacto
+                    INFORMACIÓN DE CONTACTO
                   </Typography>
                   <Typography variant="body1">
-                    Dirección: Calle Principal, Ciudad, País
+                    LUNES A VIERNES DE 8 A 17HS
                   </Typography>
-                  <Typography variant="body1">Teléfono: +123456789</Typography>
                   <Typography variant="body1">
-                    Email: ejemplo@example.com
+                    291 473 8292 - 291 453 7358/7154
                   </Typography>
-                  {/* Otras informaciones de contacto */}
+                  <Typography variant="body1">bahi_fer@yahoo.com.ar</Typography>
                 </Paper>
               </Grid>
 

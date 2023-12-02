@@ -1,7 +1,7 @@
 "use client";
 
-import { Grid, Typography, Paper, Box, useMediaQuery } from "@mui/material";
-import Link from "next/link";
+import { Grid, Typography, Paper, Box } from "@mui/material";
+import { useState } from "react";
 
 const logoCompleto = "/assets/logo/logoCompleto.png";
 const defante = "/assets/images/marcas/defante.png";
@@ -12,36 +12,13 @@ const uranga = "/assets/images/marcas/uranga.png";
 export const About = () => {
   const images = [defante, ezeta, iscar, uranga];
 
+  // Estado para manejar el hover de las imágenes
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <Grid container spacing={3}>
-      {/* Imágenes 1, 2 y 3 */}
-      {images.map((image, index) => (
-        <Grid item key={index} xs={12} sm={6} md={4}>
-          <Paper elevation={3} style={{ padding: 20, textAlign: "center" }}>
-            <Link >
-              <img
-                src={image}
-                alt={`Image ${index + 1}`}
-                style={{
-                  width: "100%",
-                  opacity: 0.5,
-                  "&:hover": {
-                    opacity: 0.8,
-                  },
-                }}
-              />
-            </Link>
-          </Paper>
-        </Grid>
-      ))}
       {/* Sección de Quiénes Somos */}
-      <Grid
-        item
-        xs={12}
-        sm={6}
-        md={4}
-        sx={{ display: "flex", alignItems: "center" }}
-      >
+      <Grid item xs={12} sx={{ display: "flex", alignItems: "center", }}>
         <Paper
           elevation={8}
           style={{
@@ -50,7 +27,7 @@ export const About = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            height: "350px",
+            height: "50%",
             backgroundColor: "#121212",
             color: "#fff",
           }}
@@ -66,8 +43,26 @@ export const About = () => {
           </Typography>
         </Paper>
       </Grid>
+      {/* Imágenes 1, 2, 3, 4 */}
+      {images.map((image, index) => (
+        <Grid item key={index} xs={12} sm={6} md={3}>
+          <Paper elevation={3} style={{ padding: 20, textAlign: "center" }}>
+            <img
+              src={image}
+              alt={`Image ${index + 1}`}
+              style={{
+                width: "100%",
+                opacity: hoveredIndex === index ? 0.8 : 0.5,
+                transition: "opacity 0.3s ease",
+              }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            />
+          </Paper>
+        </Grid>
+      ))}
 
-      <Grid item xs={12} md={4} sx={{ display: "flex", alignItems: "center" }}>
+      {/* <Grid item xs={12} md={4} sx={{ display: "flex", alignItems: "center" }}>
         <Box
           display="flex"
           justifyContent="center"
@@ -82,7 +77,7 @@ export const About = () => {
         >
           <img src={logoCompleto} alt="" style={{ maxWidth: "100%" }} />
         </Box>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

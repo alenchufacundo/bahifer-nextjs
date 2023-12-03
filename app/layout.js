@@ -13,13 +13,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <body
+        className={inter.className}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+          // overflowY: "hidden",
+        }}
+      >
         <header>
           <NavBar />
         </header>
-        <main style={{ flexGrow: 1 }}>
-          {children}
-        </main>
+        <main style={{ flexGrow: 1 }}>{children}</main>
         <footer>
           <Footer />
         </footer>

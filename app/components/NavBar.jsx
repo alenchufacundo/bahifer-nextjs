@@ -52,6 +52,8 @@ function NavBar(props) {
   const handleClickRoute = (route) => {
     console.log("click");
     router.replace(route);
+    handleMenuClose();
+    handleDrawerToggle();
   };
 
   const darkTheme = createTheme({
@@ -79,22 +81,20 @@ function NavBar(props) {
             key={item}
             disablePadding
             onClick={(event) => {
-              {
-                console.log(item);
-              }
               if (
                 item === "Inicio" ||
                 item === "Nosotros" ||
                 item === "Contacto"
               ) {
-                console.log("entro");
-                console.log(item);
+                console.log("hola");
                 router.replace("/");
+                setMobileOpen(false);
+                handleDrawerToggle();
               }
               if (item === "Productos") {
                 handleMenuOpen(event);
               } else {
-                handleDrawerToggle(); // Cierra el menú principal solo si no es "Productos"
+                handleDrawerToggle();
               }
             }}
           >
@@ -141,15 +141,6 @@ function NavBar(props) {
             </Box>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => {
-                if (
-                  item === "Inicio" ||
-                  item === "Nosotros" ||
-                  item === "Contacto"
-                ) {
-                  console.log("entro");
-                  console.log(item);
-                  router.replace("/");
-                }
                 if (item === "Productos") {
                   return (
                     <React.Fragment key={item}>
@@ -166,12 +157,12 @@ function NavBar(props) {
                         id="productos-menu"
                         anchorEl={anchorEl}
                         anchorOrigin={{
-                          vertical: "bottom", // Establece el origen del ancla en la parte inferior
-                          horizontal: "center", // Centra horizontalmente
+                          vertical: "bottom",
+                          horizontal: "center",
                         }}
                         transformOrigin={{
-                          vertical: "top", // Establece el origen del menú en la parte superior
-                          horizontal: "center", // Centra horizontalmente
+                          vertical: "top",
+                          horizontal: "center",
                         }}
                         open={Boolean(anchorEl)}
                         onClose={handleMenuClose}
@@ -183,12 +174,28 @@ function NavBar(props) {
                               handleClickRoute(`/${routes[index]}`)
                             }
                           >
-                            {console.log(producto)}
                             {producto}
                           </MenuItem>
                         ))}
                       </Menu>
                     </React.Fragment>
+                  );
+                } else if (
+                  item === "Inicio" ||
+                  item === "Nosotros" ||
+                  item === "Contacto"
+                ) {
+                  return (
+                    <Button
+                      key={item}
+                      sx={{ color: "#fff" }}
+                      onClick={() => {
+                        handleDrawerToggle();
+                        router.replace("/");
+                      }}
+                    >
+                      {item}
+                    </Button>
                   );
                 }
                 return (

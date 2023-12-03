@@ -18,7 +18,7 @@ export const routes = [
   "accesorios",
   "calisuares",
   "herramientas-calzadas",
-  "herramientas-medición",
+  "herramientas-medicion",
   "insertos-iscar",
   "machos-uranga",
   "mechas",

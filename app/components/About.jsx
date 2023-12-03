@@ -16,7 +16,7 @@ export const About = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Grid container spacing={3}>
         {/* Sección de Quiénes Somos */}
         <Grid

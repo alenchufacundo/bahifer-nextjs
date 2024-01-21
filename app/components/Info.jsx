@@ -14,10 +14,14 @@ const styles = {
 const titulos = [
   "Envios a todo el pais",
   "Productos de calidad y con garantia",
-  "Mas de 10 anios en el rubro",
+  "Mas de 10 años en el rubro",
 ];
 
-const descripcion = ["envios sin carga en la zona", "asdasdasd", "asdasdsa"];
+const descripcion = [
+  "Envios sin cargo",
+  "Trabajamos con las mejores marcas",
+  "Desde el 2005",
+];
 
 const icons = [
   <LocalShippingIcon sx={styles.iconSize} />,

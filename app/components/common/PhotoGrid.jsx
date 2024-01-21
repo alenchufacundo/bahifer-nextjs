@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import {
   Grid,
@@ -8,42 +10,13 @@ import {
   Typography,
   Modal,
   Box,
-  makeStyles,
+  useMediaQuery,
 } from "@mui/material";
 
-const photosData = [
-  {
-    id: 1,
-    title: "Foto 1",
-    description: "Descripción de la Foto 1",
-    imageUrl: "url_de_la_imagen_1.jpg",
-    largeImageUrl: "url_de_la_imagen_grande_1.jpg",
-  },
-  // Agrega más datos de fotos si es necesario
-];
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  modalContent: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    outline: "none",
-    borderRadius: 8,
-  },
-  largeImage: {
-    maxWidth: "100%",
-    maxHeight: "100%",
-  },
-}));
-
-const PhotoGrid = () => {
-  const classes = useStyles();
+const PhotoGrid = ({ elements }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const isMobile = useMediaQuery("(max-width:900px)");
+  const isDesktop = useMediaQuery("(min-width:1400px)");
 
   const openModal = (photo) => {
     setSelectedPhoto(photo);
@@ -56,22 +29,25 @@ const PhotoGrid = () => {
   return (
     <div>
       <Grid container spacing={2}>
-        {photosData.map((photo) => (
-          <Grid item key={photo.id} xs={12} sm={6} md={4}>
+        {elements.map((element) => (
+          <Grid item key={element.id} xs={12} sm={6} md={4}>
             <Card>
-              <CardActionArea onClick={() => openModal(photo)}>
+              <CardActionArea
+                onClick={() => openModal(element)}
+                sx={{ textAlign: "center" }}
+              >
                 <CardMedia
                   component="img"
                   height="200"
-                  image={photo.imageUrl}
-                  alt={photo.title}
+                  image={element.imageUrl}
+                  alt={element.title}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {photo.title}
+                    {element.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {photo.description}
+                    {element.description}
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -83,20 +59,33 @@ const PhotoGrid = () => {
         <Modal
           open={Boolean(selectedPhoto)}
           onClose={closeModal}
-          className={classes.modal}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         >
-          <Box className={classes.modalContent}>
+          <Box
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: isMobile ? "80%" : "70%",
+              maxWidth: isDesktop ? "40%" : '%100',
+              height: "70%",
+              objectFit: "contain",
+              backgroundColor: "#fff",
+            }}
+          >
             <img
               src={selectedPhoto.largeImageUrl}
               alt={selectedPhoto.title}
-              className={classes.largeImage}
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "cover",
+              }}
             />
-            <Typography variant="h6" component="div">
-              {selectedPhoto.title}
-            </Typography>
-            <Typography variant="body1" component="div">
-              {selectedPhoto.description}
-            </Typography>
           </Box>
         </Modal>
       )}

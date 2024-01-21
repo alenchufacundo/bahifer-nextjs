@@ -4,7 +4,7 @@ const localImage = "/assets/images/local/local.jpg";
 
 export const Contact = () => {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Grid container spacing={3}>
         {/* Foto del local */}
         <Grid item xs={12}>

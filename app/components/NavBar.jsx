@@ -24,6 +24,7 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { navItems, productos, routes } from "../constants/utils";
+import Link from "next/link";
 
 const drawerWidth = 240;
 const logoCompleto = "/assets/logo/logoCompleto.png";
@@ -50,7 +51,6 @@ function NavBar(props) {
   };
 
   const handleClickRoute = (route) => {
-    console.log("click");
     router.replace(route);
     handleMenuClose();
     handleDrawerToggle();
@@ -67,13 +67,47 @@ function NavBar(props) {
 
   const drawer = (
     <Box sx={{ textAlign: "center" }}>
-      <Box sx={{ my: 2, width: 200, height: 100, margin: "auto" }}>
-        <img
-          src={logoCompleto}
-          alt=""
-          style={{ width: "100%", height: "100%" }}
-        />
+      <Box
+        sx={{
+          my: 2,
+          width: 200,
+          height: 100,
+          margin: "auto",
+          cursor: "pointer",
+        }}
+      >
+        <Button
+          onClick={() => {
+            router.replace("/");
+          }}
+          sx={{
+            "&:hover": {
+              backgroundColor: "transparent",
+              boxShadow: "none",
+            },
+            root: {
+              "&:hover": {
+                backgroundColor: "none",
+                boxShadow: "none",
+              },
+            },
+          }}
+        >
+          <img
+            src={logoCompleto}
+            alt=""
+            style={{
+              width: "200px",
+              height: "100px",
+              "&:hover": {
+                backgroundColor: "transparent",
+                boxShadow: "none",
+              },
+            }}
+          />
+        </Button>
       </Box>
+
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -133,11 +167,28 @@ function NavBar(props) {
                 height: "100px",
               }}
             >
-              <img
-                src={logoCompleto}
-                alt=""
-                style={{ width: "200px", height: "100px" }}
-              />
+              <Button
+                onClick={() => {
+                  router.replace("/");
+                }}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "red",
+                  },
+                }}
+              >
+                <img
+                  src={logoCompleto}
+                  alt=""
+                  style={{
+                    width: "200px",
+                    height: "100px",
+                    "&:hover": {
+                      backgroundColor: "red",
+                    },
+                  }}
+                />
+              </Button>
             </Box>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => {

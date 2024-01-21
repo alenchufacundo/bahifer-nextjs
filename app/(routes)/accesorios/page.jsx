@@ -1,5 +1,20 @@
+"use client";
+
+import PhotoGrid from "@/app/components/common/PhotoGrid";
+import { accesorios } from "./utils/utils";
+import { Box, Container } from "@mui/material";
+import TableData from "./components/TableData";
+
+
 function Accesorios() {
-  return <h1>Accesorios</h1>;
+  return (
+    <Container maxWidth="xl" sx={{ marginTop: "30px" }}>
+      <PhotoGrid elements={accesorios} />
+      <Box marginTop={3}>
+        <TableData />
+      </Box>
+    </Container>
+  );
 }
 
 export default Accesorios;

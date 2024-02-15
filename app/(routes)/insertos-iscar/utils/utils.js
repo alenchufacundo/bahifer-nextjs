@@ -1,7 +1,7 @@
 export const insertos = [
   {
     id: 1,
-    title: "Torneado",
+    title: "Fresado",
     imageUrl: "/assets/images/products/insertos/fresado.png",
     largeImageUrl: "/assets/images/products/insertos/fresado.png",
   },
@@ -25,7 +25,7 @@ export const insertos = [
   },
   {
     id: 5,
-    title: "Tronazo y ranurado",
+    title: "Tronzado y ranurado",
     imageUrl: "/assets/images/products/insertos/tronzado-ranurado.png",
     largeImageUrl: "/assets/images/products/insertos/tronzado-ranurado.png",
   },

@@ -59,6 +59,7 @@ function Medicion() {
             <Link
               href="https://www.amsarg.com.ar/product-category/asimeto/"
               passHref
+              target="_blank"
             >
               Ir al sitio oficial
             </Link>

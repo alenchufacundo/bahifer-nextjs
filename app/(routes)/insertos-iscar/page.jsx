@@ -39,7 +39,7 @@ function Insertos() {
           }}
         >
           <Link href="catalogo" passHref target="_blank">
-            Ir al catalogo
+            Ir al sitio oficial
           </Link>
         </Box>
       </Box>

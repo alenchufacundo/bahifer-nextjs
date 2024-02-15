@@ -61,7 +61,7 @@ const PhotoGrid = ({ elements }) => {
                 />
                 <CardContent
                   sx={{
-                    minHeight: isMobileCardContent ? "200px" : "200px",
+                    minHeight: isMobileCardContent ? "150px" : "200px",
                   }}
                 >
                   <Typography

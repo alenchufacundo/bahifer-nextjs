@@ -15,9 +15,9 @@ const styles = {
 };
 
 const titulos = [
-  "Envios a todo el pais",
+  "Envíos a todo el país",
   "Pagá con el medio de pago que quieras",
-  "Mas de 20 años en el rubro",
+  "Más de 20 años en el rubro",
 ];
 
 const icons = [
@@ -32,13 +32,13 @@ export const Info = () => {
   return (
     <Grid
       container
-      bgcolor="#FE7000"
-      padding={5}
       sx={{
+        background: "linear-gradient(to left, #ff6c00, #eca400)",
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
         marginTop: "25px",
+        padding: "50px 0",
         gap: isMobile && "30px",
       }}
     >
@@ -47,7 +47,11 @@ export const Info = () => {
           <Box
             display="flex"
             alignItems="center"
-            sx={{ width: "50px", height: "50px", margin: "auto" }}
+            sx={{
+              width: "50px",
+              height: "50px",
+              margin: "auto",
+            }}
             justifyContent="center"
             mb={2}
           >

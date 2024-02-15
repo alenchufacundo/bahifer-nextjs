@@ -43,6 +43,7 @@ function Machos() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              marginBottom: "30px",
             }}
           >
             <CollapsibleTable />

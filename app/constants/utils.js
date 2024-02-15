@@ -7,8 +7,8 @@ export const productos = [
   "Insertos ISCAR",
   "Machos Rectificados Uranga",
   "Mechas Fresas y Limas",
-  "Porta insertos",
-  "Tornos convencionales",
+  // "Porta insertos",
+  // "Tornos convencionales",
 ];
 
 export const navItems = ["Inicio", "Productos", "Nosotros", "Contacto"];

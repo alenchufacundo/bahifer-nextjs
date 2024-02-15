@@ -204,7 +204,6 @@ function Row(props) {
       <TableRow
         sx={{
           "& > *": {
-            borderBottom: "unset",
             backgroundColor: "#272727",
             borderRadius: "20px",
           },

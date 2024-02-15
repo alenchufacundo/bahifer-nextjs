@@ -29,9 +29,9 @@ export const abrasivos = [
     title: "HOJA TELA FENOBOND METAL",
     description:
       "La Tela Fenobond Metal es la indicada para trabajos en metales no ferrosos (cobre, plomo, níquel, estaño, latón, bronce, aluminio, titanio, oro, plata, platino, entre otros). Su amplia gama de grosores permite un lijado escalonado para conseguir un trabajo profesional y destacable. Grosores del 36 a 600.",
-    imageUrl: "/assets/images/products/abrasivos/ROLLO-TELA-FENOBOND-METAL.png",
+    imageUrl: "/assets/images/products/abrasivos/HOJA-TELA-FENOBOND-METAL.png",
     largeImageUrl:
-      "/assets/images/products/abrasivos/ROLLO-TELA-FENOBOND-METAL.png",
+      "/assets/images/products/abrasivos/HOJA-TELA-FENOBOND-METAL.png",
   },
 
   // Agrega más datos de fotos si es necesario

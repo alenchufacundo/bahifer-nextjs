@@ -3,7 +3,11 @@ import Link from "next/link";
 
 function Medicion() {
   return (
-    <Container>
+    <Container
+      sx={{
+        width: "95%",
+      }}
+    >
       <Grid
         container
         spacing={4}
@@ -11,6 +15,8 @@ function Medicion() {
           backgroundColor: "#272727",
           padding: "20px",
           marginTop: "30px",
+          marginLeft: "-15px",
+          marginBottom: "30px",
           borderRadius: "30px",
         }}
       >
@@ -23,7 +29,7 @@ function Medicion() {
               color: "#3498db",
             }}
           >
-            Herramientas de asimeto
+            Herramientas de medición Asimeto
           </Typography>
         </Grid>
         <Grid item xs={12}>

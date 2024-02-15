@@ -2,28 +2,32 @@ export const mechas = [
   {
     id: 1,
     title: "Mechas",
-    description: "Mechas serie estándar",
+    description:
+      "Brocas rectificadas de acero rápido HSS, brocas de acero al cobalto, brocas de carburo de tungsteno, opción de recubrimientos duros; brocas de vástagos cilíndrico, cónico, hexagonal, reducido, weldon, etc., normalizadas, semi estándar y especiales para el perforado de metales.",
     imageUrl: "/assets/images/products/mechas/mecha0.png",
     largeImageUrl: "/assets/images/products/mechas/mecha0.png",
   },
   {
     id: 2,
-    title: "Mechas de centrado",
-    description: "asdasdasdasdsdasdasda",
-    imageUrl: "/assets/images/products/mechas/mecha1.png",
-    largeImageUrl: "/assets/images/products/mechas/mecha1.png",
+    title: "Mechas de centro acero rapido",
+    description:
+      "Mecha para producir agujeros de centro según norma DIN 333, tipo 1, forma A (sin chaflán de protección).Para perforado de acero, aluminio, metales no ferrosos, fundición, etc. Usar en torno, fresadoras y CNC",
+    imageUrl: "/assets/images/products/mechas/mecha-centrado-rapido.png",
+    largeImageUrl: "/assets/images/products/mechas/mecha-centrado-rapido.png",
   },
   {
-    id: 4,
+    id: 3,
     title: "Limas rotativas",
-    description: "Limas",
+    description:
+      "Dentado optimizado de alto rendimiento para el trabajo en aceros inoxidables, auseníticos y resistentes a los ácidos. Con un arranque de material visiblemente más alto en comparación a los dentados cruzados estándares.",
     imageUrl: "/assets/images/products/mechas/limas.png",
     largeImageUrl: "/assets/images/products/mechas/limas.png",
   },
   {
-    id: 5,
+    id: 4,
     title: "Fresa",
-    description: "Fresa",
+    description:
+      "Fresas frontales de acero rápido HSS, fresas de acero al cobalto, fresas de carburo de tungsteno, opción de recubrimientos duros, de dos, cuatro y seis cortes, punta plana ó esférica, normalizadas, semi estándar y especiales para el fresado metalúrgico.",
     imageUrl: "/assets/images/products/mechas/fresa.png",
     largeImageUrl: "/assets/images/products/mechas/fresa.png",
   },

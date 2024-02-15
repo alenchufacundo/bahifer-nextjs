@@ -30,19 +30,30 @@ const TableData = () => {
 
   return (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer
+        component={Paper}
+        sx={{
+          backgroundColor: "#272727",
+          borderRadius: "30px",
+          border: "1px solid #fff",
+        }}
+      >
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Categoría</TableCell>
-              <TableCell>Descripción</TableCell>
+              <TableCell sx={{ color: "#3498db", fontWeight: "bold" }}>
+                Categoría
+              </TableCell>
+              <TableCell sx={{ color: "#3498db", fontWeight: "bold" }}>
+                Descripción
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {slicedData.map((row, index) => (
               <TableRow key={index}>
-                <TableCell>{row.category}</TableCell>
-                <TableCell>{row.description}</TableCell>
+                <TableCell sx={{ color: "#fff" }}>{row.category}</TableCell>
+                <TableCell sx={{ color: "#fff" }}>{row.description}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -56,6 +67,7 @@ const TableData = () => {
           onPageChange={handleChangePage}
           labelRowsPerPage="Filas por pagina"
           onRowsPerPageChange={handleChangeRowsPerPage}
+          sx={{ color: "#fff" }}
         />
       </TableContainer>
     </>

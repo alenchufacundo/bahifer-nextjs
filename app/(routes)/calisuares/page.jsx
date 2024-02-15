@@ -1,6 +1,4 @@
-import PhotoGrid from "@/app/components/common/PhotoGrid";
 import { Box, Container } from "@mui/material";
-import { calisuares } from "./utils/util";
 import TablaData from "./components/TablaData";
 
 function Calisuares() {
@@ -9,10 +7,11 @@ function Calisuares() {
       maxWidth="xl"
       sx={{
         marginTop: "30px",
+        marginBottom: "35px",
       }}
     >
       <Box>
-        <PhotoGrid elements={calisuares} />
+        {/* <PhotoGrid elements={calisuares} /> */}
       </Box>
       <Box marginTop={3}>
         <TablaData />

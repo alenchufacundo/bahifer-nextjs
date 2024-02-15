@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Box,
-  IconButton,
-  MobileStepper,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, IconButton, MobileStepper, useMediaQuery } from "@mui/material";
 import {
   ArrowBack as ArrowBackIcon,
   ArrowForward as ArrowForwardIcon,
@@ -15,15 +10,15 @@ import { useState, useEffect } from "react";
 const tutorialSteps = [
   {
     label: "Item 1",
-    imgPath: "https://via.placeholder.com/600x300?text=Item+1",
+    imgPath: "/assets/images/hero/comercial.png",
   },
   {
     label: "Item 2",
-    imgPath: "https://via.placeholder.com/600x300?text=Item+2",
+    imgPath: "/assets/images/hero/wp.png",
   },
   {
     label: "Item 3",
-    imgPath: "https://via.placeholder.com/600x300?text=Item+3",
+    imgPath: "/assets/images/hero/envios.png",
   },
 ];
 
@@ -56,16 +51,15 @@ function Carousel() {
   }, [activeStep]);
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative", height: "100%" }}>
       <img
         src={tutorialSteps[activeStep].imgPath}
         alt={tutorialSteps[activeStep].label}
         style={{
           display: "block",
-          maxWidth: "100%",
           overflow: "hidden",
+          height: "100%",
           width: "100%",
-          height: isMobile && "40vh",
         }}
       />
       <MobileStepper
@@ -76,14 +70,15 @@ function Carousel() {
           bottom: 0,
           position: "absolute",
           width: "100%",
+          backgroundColor: "transparent",
         }}
         nextButton={
-          <IconButton size="small" onClick={handleNext}>
+          <IconButton size="small" onClick={handleNext} sx={{ color: "#FFF" }}>
             <ArrowForwardIcon />
           </IconButton>
         }
         backButton={
-          <IconButton size="small" onClick={handleBack}>
+          <IconButton size="small" onClick={handleBack} sx={{ color: "#FFF" }}>
             <ArrowBackIcon />
           </IconButton>
         }

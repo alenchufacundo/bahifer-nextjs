@@ -14,13 +14,14 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { useMediaQuery } from "@mui/material";
 
 function createData(name) {
   return {
     name,
     modelos: [
       {
-        group: "W",
+        group: 'W"',
         items: [
           "1/16 60 HILOS",
           "3/32 48 HILOS",
@@ -87,7 +88,7 @@ function createData(name) {
         ],
       },
       {
-        group: "NF",
+        group: 'NF"',
         items: [
           "Nº3 56 HILOS",
           "Nº4 48 HILOS",
@@ -109,11 +110,11 @@ function createData(name) {
         ],
       },
       {
-        group: "NS",
+        group: 'NS"',
         items: ["1 14 HILOS"],
       },
       {
-        group: "NC",
+        group: 'NC"',
         items: [
           "Nº3 48 HILOS",
           "Nº4 40 HILOS",
@@ -130,7 +131,7 @@ function createData(name) {
         ],
       },
       {
-        group: "BSP",
+        group: 'BSP"',
         items: [
           "1/8 28 HILOS",
           "1/4 19 HILOS",
@@ -143,7 +144,7 @@ function createData(name) {
         ],
       },
       {
-        group: "BSPT",
+        group: 'BSPT"',
         items: [
           "1/8 28 HILOS",
           "1/4 19 HILOS",
@@ -157,7 +158,7 @@ function createData(name) {
         ],
       },
       {
-        group: "NPT",
+        group: 'NPT"',
         items: [
           "1/8 27 HILOS",
           "1/4 18 HILOS",
@@ -174,6 +175,7 @@ function createData(name) {
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const renderModelosByName = (name) => {
     const modelos =
@@ -183,11 +185,10 @@ function Row(props) {
     return (
       <React.Fragment key={name}>
         <Table size="small" aria-label="purchases">
-          <TableHead></TableHead>
           <TableBody>
             {modelos.map((historyRow) => (
               <TableRow key={historyRow}>
-                <TableCell component="th" scope="row">
+                <TableCell component="th" scope="row" sx={{ color: "#fff" }}>
                   {historyRow}
                 </TableCell>
               </TableRow>
@@ -200,26 +201,37 @@ function Row(props) {
 
   return (
     <React.Fragment>
-      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+      <TableRow
+        sx={{
+          "& > *": {
+            borderBottom: "unset",
+            backgroundColor: "#272727",
+            borderRadius: "20px",
+          },
+        }}
+      >
         <TableCell>
           <IconButton
             aria-label="expand row"
             size="small"
             onClick={() => setOpen(!open)}
+            sx={{ fontFamily: '"Raleway", sans-serif', color: "#fff" }}
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell
+          component="th"
+          scope="row"
+          sx={{ fontFamily: '"Raleway", sans-serif', color: "#fff" }}
+        >
           {row.name}
         </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              {renderModelosByName(row.name)}
-            </Box>
+            <Box sx={{ margin: 1 }}>{renderModelosByName(row.name)}</Box>
           </Collapse>
         </TableCell>
       </TableRow>
@@ -246,33 +258,55 @@ Row.propTypes = {
 };
 
 const rows = [
-  createData("W"),
+  createData('W"'),
   createData("MM GRUESO"),
   createData("MM FINO"),
-  createData("NF"),
-  createData("NS"),
-  createData("NC"),
-  createData("BSP"),
-  createData("BSPT"),
-  createData("NPT"),
+  createData('NF"'),
+  createData('NS"'),
+  createData('NC"'),
+  createData('BSP"'),
+  createData('BSPT"'),
+  createData('NPT"'),
 ];
 
 export default function CollapsibleTable() {
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>Machos URANGA</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <Row key={row.name} row={row} />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Box display="inline-block" sx={{ width: "100%" }}>
+      <TableContainer component={Paper} autoWidth>
+        <Table
+          aria-label="collapsible table"
+          sx={{
+            backgroundColor: "#272727",
+            border: "1px solid #fff",
+          }}
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell
+                sx={{ fontFamily: '"Raleway", sans-serif', color: "#3498db" }}
+              >
+                Medidas
+              </TableCell>
+              <TableCell
+                sx={{ fontFamily: '"Raleway", sans-serif', color: "#3498db" }}
+              >
+                Machos URANGA
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody
+            sx={{ fontFamily: '"Raleway", sans-serif', color: "#fff" }}
+          >
+            {rows.map((row) => (
+              <Row
+                key={row.name}
+                row={row}
+                sx={{ fontFamily: '"Raleway", sans-serif', color: "#fff" }}
+              />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 }

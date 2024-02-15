@@ -4,12 +4,38 @@ import Link from "next/link";
 function Medicion() {
   return (
     <Container>
-      <Grid container>
+      <Grid
+        container
+        spacing={4}
+        sx={{
+          backgroundColor: "#272727",
+          padding: "20px",
+          marginTop: "30px",
+          borderRadius: "30px",
+        }}
+      >
         <Grid item xs={12}>
-          <h1>Herramientos de asimeto</h1>
+          <Typography
+            variant="h4"
+            sx={{
+              textAlign: "center",
+              fontFamily: '"Raleway", sans-serif',
+              color: "#3498db",
+            }}
+          >
+            Herramientas de asimeto
+          </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="body2">
+          <Typography
+            variant="subtitle"
+            sx={{
+              textAlign: "center",
+              fontFamily: '"Raleway", sans-serif',
+              fontStyle: "italic",
+              color: "#fff",
+            }}
+          >
             En marca Asimeto trabajamos: calibres analógicos y digitales, bases
             magnéticas, brazos magnéticos, comparadores analógicos y digitales,
             medidores de altura y profundidad, micrómetros. Para más información
@@ -24,7 +50,9 @@ function Medicion() {
                 color: "#fff",
                 textDecoration: "none",
                 fontStyle: "italic",
-                "&:hover": { color: "red", textDecoration: "underline" },
+                textAlign: "center",
+                fontFamily: '"Raleway", sans-serif',
+                "&:hover": { color: "#3498db", textDecoration: "underline" },
               },
             }}
           >

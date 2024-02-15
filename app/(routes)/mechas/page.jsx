@@ -9,6 +9,7 @@ function Mechas() {
       maxWidth="xl"
       sx={{
         marginTop: "30px",
+        marginBottom: "30px",
       }}
     >
       <Box>
@@ -16,22 +17,27 @@ function Mechas() {
       </Box>
       <Box
         sx={{
-          marginTop: "30px",
+          marginTop: "35px",
           textAlign: "center",
           "& a": {
             color: "#fff",
             textDecoration: "none",
             fontStyle: "italic",
-            "&:hover": { color: "red", textDecoration: "underline" },
+            "&:hover": { color: "#3293D3", textDecoration: "underline" },
           },
         }}
       >
-        <Typography variant="h4">
-          Mas informacion de nuestros productos
+        <Typography
+          variant="h4"
+          sx={{ fontFamily: '"Raleway", sans-serif', color: "#fff" }}
+        >
+          Más información
         </Typography>
         <Link
           href="https://www.ezeta.com/categoria-producto/herramientas-normalizadas/"
           passHref
+          target="_blank"
+          sx={{ fontFamily: '"Raleway", sans-serif', color: "#fff" }}
         >
           Ir al sitio oficial
         </Link>

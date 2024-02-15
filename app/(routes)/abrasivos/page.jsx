@@ -5,7 +5,7 @@ import { Container } from "@mui/material";
 
 function Abrasivos() {
   return (
-    <Container maxWidth="xl" sx={{ marginTop: "30px" }}>
+    <Container maxWidth="xl" sx={{ marginTop: "30px", marginBottom: "30px" }}>
       <PhotoGrid elements={abrasivos} />
     </Container>
   );

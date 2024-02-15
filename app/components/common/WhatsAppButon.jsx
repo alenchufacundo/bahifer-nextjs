@@ -7,7 +7,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "1234567890"; // Reemplaza con el número de teléfono deseado
+    const phoneNumber = "2914738292"; // Reemplaza con el número de teléfono deseado
     const whatsappLink = `https://wa.me/${phoneNumber}`;
 
     window.open(whatsappLink, "_blank");

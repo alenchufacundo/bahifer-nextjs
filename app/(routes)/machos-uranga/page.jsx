@@ -9,20 +9,13 @@ function Machos() {
       maxWidth="xxl"
       sx={{
         marginTop: "30px",
+        position: "sticky",
+        top: 0,
+        zIndex: 99,
       }}
     >
       <Grid container spacing={2}>
-        <Grid
-          item
-          xs={12}
-          md={4}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <Grid item xs={12} md={4}>
           <Box
             sx={{
               display: "flex",
@@ -32,9 +25,9 @@ function Machos() {
               justifyContent: "center",
             }}
           >
-            <Typography>
-              CONTAMOS CON TODA LA VARIEDAD DE MACHOS RECTIFICADOS URANGA
-              Izquierdos y Derechos
+            <Typography sx={{ fontFamily: '"Raleway", sans-serif' }}>
+              CONTAMOS CON LA MÁS AMPLIA VARIEDAD DE MACHOS RECTIFICADOS URANGA,
+              IZQUIERDOS Y DERECHOS TANTO DE ACERO RAPIDO COMO ACERO AL CARBONO
             </Typography>
             <img
               src={imgMachos}
@@ -43,8 +36,17 @@ function Machos() {
             />
           </Box>
         </Grid>
-        <Grid item xs={12} md={7}>
-          <CollapsibleTable />
+        <Grid item xs={12} md={8}>
+          <Box
+            marginTop={5}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CollapsibleTable />
+          </Box>
         </Grid>
       </Grid>
     </Container>

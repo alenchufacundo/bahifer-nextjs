@@ -23,11 +23,26 @@ const rows = [
 
 export default function TablaData() {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer
+      component={Paper}
+      sx={{
+        backgroundColor: "#272727",
+        borderRadius: "20px",
+        border: "1px solid #fff",
+      }}
+    >
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell colSpan={8} align="center">
+            <TableCell
+              colSpan={8}
+              align="center"
+              sx={{
+                color: "#3498db",
+                fontSize: "24px",
+                fontFamily: '"Raleway", sans-serif',
+              }}
+            >
               {rows[0].name}
             </TableCell>
           </TableRow>
@@ -38,12 +53,32 @@ export default function TablaData() {
               key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell align="center" component="th" scope="row">
-                {row.name}
+              {/* <TableCell
+                align="center"
+                component="th"
+                scope="row"
+                sx={{ color: "#fff" }}
+              >
+                {index > 0 ? null : row.name}
+              </TableCell> */}
+              <TableCell
+                align="center"
+                sx={{ color: "#fff", fontFamily: '"Raleway", sans-serif' }}
+              >
+                {row.medidas1}
               </TableCell>
-              <TableCell align="center">{row.medidas1}</TableCell>
-              <TableCell align="center">{row.medidas2}</TableCell>
-              <TableCell align="center">{row.medidas3}</TableCell>
+              <TableCell
+                align="center"
+                sx={{ color: "#fff", fontFamily: '"Raleway", sans-serif' }}
+              >
+                {row.medidas2}
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ color: "#fff", fontFamily: '"Raleway", sans-serif' }}
+              >
+                {row.medidas3}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

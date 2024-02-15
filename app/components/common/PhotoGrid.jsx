@@ -17,6 +17,7 @@ const PhotoGrid = ({ elements }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const isMobile = useMediaQuery("(max-width:900px)");
   const isDesktop = useMediaQuery("(min-width:1400px)");
+  const isMobileCardContent = useMediaQuery("(min-width:600px)");
 
   const openModal = (photo) => {
     setSelectedPhoto(photo);
@@ -31,22 +32,61 @@ const PhotoGrid = ({ elements }) => {
       <Grid container spacing={2}>
         {elements.map((element) => (
           <Grid item key={element.id} xs={12} sm={6} md={4}>
-            <Card>
+            <Card
+              sx={{
+                minHeight: "380px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                borderRadius: "20px",
+              }}
+            >
               <CardActionArea
                 onClick={() => openModal(element)}
-                sx={{ textAlign: "center" }}
+                sx={{
+                  minHeight: "380px",
+                  height: "100%",
+                  textAlign: "center",
+                  backgroundColor: "#272727",
+                }}
               >
                 <CardMedia
                   component="img"
-                  height="200"
                   image={element.imageUrl}
                   alt={element.title}
+                  height={250}
+                  sx={{
+                    maxHeight: "250px",
+                    backgroundColor: "#fff",
+                  }}
                 />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {element.title}
+                <CardContent
+                  sx={{
+                    minHeight: isMobileCardContent ? "285px" : "200px",
+                  }}
+                >
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    sx={{
+                      fontFamily: '"Raleway", sans-serif',
+                      textAlign: "center",
+                      fontWeight: "bold",
+                      padding: "30px",
+                      color: "#3498db",
+                    }}
+                  >
+                    {element.title.toUpperCase()}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{
+                      fontFamily: '"Roboto", sans-serif',
+                      textAlign: "justify",
+                      fontWeight: "bold",
+                      color: "#7F8C8D", // Light gray text color
+                    }}
+                  >
                     {element.description}
                   </Typography>
                 </CardContent>
@@ -71,10 +111,11 @@ const PhotoGrid = ({ elements }) => {
               alignItems: "center",
               justifyContent: "center",
               width: isMobile ? "80%" : "70%",
-              maxWidth: isDesktop ? "40%" : '%100',
+              maxWidth: isDesktop ? "40%" : "100%",
               height: "70%",
-              objectFit: "contain",
               backgroundColor: "#fff",
+              borderRadius: "15px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
           >
             <img
@@ -84,6 +125,7 @@ const PhotoGrid = ({ elements }) => {
                 maxWidth: "100%",
                 maxHeight: "100%",
                 objectFit: "cover",
+                borderRadius: "15px",
               }}
             />
           </Box>

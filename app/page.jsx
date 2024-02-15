@@ -1,4 +1,4 @@
-import React from "react";
+import "./globals.css";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
@@ -7,12 +7,12 @@ import WhatsAppButton from "./components/common/WhatsAppButon";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
       <About />
       <Contact />
       <Info />
       <WhatsAppButton />
-    </main>
+    </>
   );
 }

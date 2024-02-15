@@ -1,17 +1,38 @@
+"use client";
 import { Container, Grid, Paper, Typography } from "@mui/material";
+import { useState } from "react";
 
 const localImage = "/assets/images/local/local.jpg";
 
 export const Contact = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Container maxWidth="xl">
       <Grid container spacing={3}>
         {/* Foto del local */}
-        <Grid item xs={12}>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            "&:hover": {
+              opacity: 1,
+            },
+          }}
+        >
           <img
             src={localImage}
             alt="Local"
-            style={{ maxWidth: "100%", display: "block", marginTop: "30px" }}
+            style={{
+              width: "100%",
+              maxWidth: "100%",
+              display: "block",
+              marginTop: "30px",
+              opacity: isHovered ? 1 : 0.6,
+              transition: "opacity 0.3s ease",
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           />
         </Grid>
 
@@ -24,7 +45,7 @@ export const Contact = () => {
               sx={{ display: "flex", alignItems: "center" }}
             >
               {/* Tarjeta de contacto */}
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} md={4} id="contacto">
                 <Paper
                   elevation={3}
                   style={{
@@ -35,21 +56,50 @@ export const Contact = () => {
                     flexDirection: "column",
                     width: "100%",
                     textAlign: "center",
+                    color: "#fff",
+                    // border: "1px solid #fff",
+                    backgroundColor: "#272727",
                   }}
                 >
-                  <Typography variant="h5" gutterBottom>
+                  <Typography
+                    variant="h5"
+                    gutterBottom
+                    sx={{
+                      textAlign: "center",
+                      fontFamily: '"Raleway", sans-serif',
+                    }}
+                  >
                     INFORMACIÓN DE CONTACTO
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "center",
+                      fontFamily: '"Raleway", sans-serif',
+                    }}
+                  >
                     LUNES A VIERNES DE 8 A 17HS
                   </Typography>
-                  <Typography variant="body1">
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "center",
+                      fontFamily: '"Raleway", sans-serif',
+                    }}
+                  >
                     291 473 8292 - 291 453 7358/7154
                   </Typography>
-                  <Typography variant="body1">bahi_fer@yahoo.com.ar</Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textAlign: "center",
+                      fontFamily: '"Raleway", sans-serif',
+                    }}
+                  >
+                    bahi_fer@yahoo.com.ar
+                  </Typography>
                 </Paper>
               </Grid>
-
               {/* Mapa de Google Maps */}
               <Grid item xs={12} md={8}>
                 <Paper elevation={3} sx={{ height: "300px" }}>

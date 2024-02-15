@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import PropTypes from "prop-types";
@@ -24,7 +25,6 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { navItems, productos, routes } from "../constants/utils";
-import Link from "next/link";
 
 const drawerWidth = 240;
 const logoCompleto = "/assets/logo/logoCompleto.png";
@@ -40,6 +40,19 @@ function NavBar(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const scrollToSection = (sectionId) => {
+    console.log(sectionId);
+    if (sectionId === "nosotros" || sectionId === "contacto") {
+      const route = `/#${sectionId}`;
+      router.replace(route);
+      setMobileOpen(false);
+    } else {
+      console.log(sectionId);
+      router.replace("/");
+      setMobileOpen(false);
+    }
+  };
+
   const handleMenuOpen = (event) => {
     if (event) {
       setAnchorEl(event.currentTarget);
@@ -50,10 +63,14 @@ function NavBar(props) {
     setAnchorEl(null);
   };
 
+  console.log("me renderice");
+
   const handleClickRoute = (route) => {
+    console.log(route);
     router.replace(route);
+
     handleMenuClose();
-    handleDrawerToggle();
+    setMobileOpen(false);
   };
 
   const darkTheme = createTheme({
@@ -65,6 +82,7 @@ function NavBar(props) {
     },
   });
 
+  //mobile
   const drawer = (
     <Box sx={{ textAlign: "center" }}>
       <Box
@@ -79,17 +97,11 @@ function NavBar(props) {
         <Button
           onClick={() => {
             router.replace("/");
+            handleDrawerToggle();
           }}
           sx={{
             "&:hover": {
               backgroundColor: "transparent",
-              boxShadow: "none",
-            },
-            root: {
-              "&:hover": {
-                backgroundColor: "none",
-                boxShadow: "none",
-              },
             },
           }}
         >
@@ -97,8 +109,7 @@ function NavBar(props) {
             src={logoCompleto}
             alt=""
             style={{
-              width: "200px",
-              height: "100px",
+              width: "100%",
               "&:hover": {
                 backgroundColor: "transparent",
                 boxShadow: "none",
@@ -107,7 +118,6 @@ function NavBar(props) {
           />
         </Button>
       </Box>
-
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -115,17 +125,13 @@ function NavBar(props) {
             key={item}
             disablePadding
             onClick={(event) => {
-              if (
-                item === "Inicio" ||
-                item === "Nosotros" ||
-                item === "Contacto"
-              ) {
-                console.log("hola");
+              if (item === "Inicio") {
+                scrollToSection(item.toLowerCase());
+              } else if (item === "Nosotros" || item === "Contacto") {
                 router.replace("/");
-                setMobileOpen(false);
-                handleDrawerToggle();
-              }
-              if (item === "Productos") {
+                scrollToSection(item.toLowerCase());
+              } else if (item === "Productos") {
+                console.log(item);
                 handleMenuOpen(event);
               } else {
                 handleDrawerToggle();
@@ -133,7 +139,10 @@ function NavBar(props) {
             }}
           >
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText
+                primary={item}
+                sx={{ fontFamily: '"Raleway", sans-serif' }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -173,20 +182,14 @@ function NavBar(props) {
                 }}
                 sx={{
                   "&:hover": {
-                    backgroundColor: "red",
+                    backgroundColor: "transparent",
                   },
                 }}
               >
                 <img
                   src={logoCompleto}
                   alt=""
-                  style={{
-                    width: "200px",
-                    height: "100px",
-                    "&:hover": {
-                      backgroundColor: "red",
-                    },
-                  }}
+                  style={{ width: "200px", height: "100px" }}
                 />
               </Button>
             </Box>
@@ -199,7 +202,10 @@ function NavBar(props) {
                         key={item}
                         aria-controls="productos-menu"
                         aria-haspopup="true"
-                        sx={{ color: "#fff" }}
+                        sx={{
+                          fontFamily: '"Raleway", sans-serif',
+                          color: "#fff",
+                        }}
                         onClick={handleMenuOpen}
                       >
                         {item}
@@ -220,6 +226,7 @@ function NavBar(props) {
                       >
                         {productos.map((producto, index) => (
                           <MenuItem
+                            sx={{ fontFamily: '"Raleway", sans-serif' }}
                             key={index}
                             onClick={() =>
                               handleClickRoute(`/${routes[index]}`)
@@ -231,29 +238,19 @@ function NavBar(props) {
                       </Menu>
                     </React.Fragment>
                   );
-                } else if (
-                  item === "Inicio" ||
-                  item === "Nosotros" ||
-                  item === "Contacto"
-                ) {
+                } else {
                   return (
                     <Button
-                      key={item}
-                      sx={{ color: "#fff" }}
-                      onClick={() => {
-                        handleDrawerToggle();
-                        router.replace("/");
+                      sx={{
+                        color: "#fff",
+                        fontFamily: '"Raleway", sans-serif',
                       }}
+                      onClick={() => scrollToSection(item.toLowerCase())}
                     >
                       {item}
                     </Button>
                   );
                 }
-                return (
-                  <Button key={item} sx={{ color: "#fff" }}>
-                    {item}
-                  </Button>
-                );
               })}
             </Box>
           </Toolbar>

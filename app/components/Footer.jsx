@@ -31,7 +31,10 @@ const Footer = () => {
           <Typography variant="body1" sx={{ fontWeight: "bold" }}>
             Charlone 845, Bahía Blanca, Argentina
           </Typography>
-          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+          <Typography
+            variant="body1"
+            sx={{ fontWeight: "bold", textDecoration: "none", color: "#fff" }}
+          >
             Teléfono: 291 473 8292 - 291 453 7358/7154
           </Typography>
           <Typography variant="body1" sx={{ fontWeight: "bold" }}>

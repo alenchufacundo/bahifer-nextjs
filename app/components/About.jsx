@@ -15,7 +15,7 @@ export const About = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div id="nosotros">
+    <section id="nosotros">
       <Grid container spacing={3}>
         {/* Sección de Quiénes Somos */}
         <Grid
@@ -83,6 +83,6 @@ export const About = () => {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </section>
   );
 };

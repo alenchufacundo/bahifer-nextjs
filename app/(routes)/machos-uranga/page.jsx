@@ -31,7 +31,7 @@ function Machos() {
             </Typography>
             <img
               src={imgMachos}
-              alt="planilla"
+              alt="imagen de machos uranga"
               style={{ width: "100%", height: "100%" }}
             />
           </Box>

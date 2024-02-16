@@ -107,7 +107,7 @@ function NavBar(props) {
         >
           <img
             src={logoCompleto}
-            alt=""
+            alt="logo de bahifer completo"
             style={{
               width: "100%",
               "&:hover": {
@@ -154,132 +154,134 @@ function NavBar(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Box sx={{ display: "flex", height: isMobile && "50px" }}>
-        <CssBaseline />
-        <AppBar component="nav" position="fixed">
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: { xs: "none", sm: "block" },
-                width: "100px",
-                height: "100px",
-              }}
-            >
-              <Button
-                onClick={() => {
-                  router.replace("/");
-                }}
+    <section>
+      <ThemeProvider theme={darkTheme}>
+        <Box sx={{ display: "flex", height: isMobile && "50px" }}>
+          <CssBaseline />
+          <AppBar component="nav" position="fixed">
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 2, display: { sm: "none" } }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Box
                 sx={{
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                  },
+                  flexGrow: 1,
+                  display: { xs: "none", sm: "block" },
+                  width: "100px",
+                  height: "100px",
                 }}
               >
-                <img
-                  src={logoCompleto}
-                  alt=""
-                  style={{ width: "200px", height: "100px" }}
-                />
-              </Button>
-            </Box>
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => {
-                if (item === "Productos") {
-                  return (
-                    <React.Fragment key={item}>
+                <Button
+                  onClick={() => {
+                    router.replace("/");
+                  }}
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "transparent",
+                    },
+                  }}
+                >
+                  <img
+                    src={logoCompleto}
+                    alt="logo de bahifer completo"
+                    style={{ width: "200px", height: "100px" }}
+                  />
+                </Button>
+              </Box>
+              <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                {navItems.map((item) => {
+                  if (item === "Productos") {
+                    return (
+                      <React.Fragment key={item}>
+                        <Button
+                          key={item}
+                          aria-controls="productos-menu"
+                          aria-haspopup="true"
+                          sx={{
+                            fontFamily: '"Raleway", sans-serif',
+                            color: "#fff",
+                          }}
+                          onClick={handleMenuOpen}
+                        >
+                          {item}
+                        </Button>
+                        <Menu
+                          id="productos-menu"
+                          anchorEl={anchorEl}
+                          anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "center",
+                          }}
+                          transformOrigin={{
+                            vertical: "top",
+                            horizontal: "center",
+                          }}
+                          open={Boolean(anchorEl)}
+                          onClose={handleMenuClose}
+                        >
+                          {productos.map((producto, index) => (
+                            <MenuItem
+                              sx={{ fontFamily: '"Raleway", sans-serif' }}
+                              key={index}
+                              onClick={() =>
+                                handleClickRoute(`/${routes[index]}`)
+                              }
+                            >
+                              {producto}
+                            </MenuItem>
+                          ))}
+                        </Menu>
+                      </React.Fragment>
+                    );
+                  } else {
+                    return (
                       <Button
-                        key={item}
-                        aria-controls="productos-menu"
-                        aria-haspopup="true"
                         sx={{
-                          fontFamily: '"Raleway", sans-serif',
                           color: "#fff",
+                          fontFamily: '"Raleway", sans-serif',
                         }}
-                        onClick={handleMenuOpen}
+                        onClick={() => scrollToSection(item.toLowerCase())}
                       >
                         {item}
                       </Button>
-                      <Menu
-                        id="productos-menu"
-                        anchorEl={anchorEl}
-                        anchorOrigin={{
-                          vertical: "bottom",
-                          horizontal: "center",
-                        }}
-                        transformOrigin={{
-                          vertical: "top",
-                          horizontal: "center",
-                        }}
-                        open={Boolean(anchorEl)}
-                        onClose={handleMenuClose}
-                      >
-                        {productos.map((producto, index) => (
-                          <MenuItem
-                            sx={{ fontFamily: '"Raleway", sans-serif' }}
-                            key={index}
-                            onClick={() =>
-                              handleClickRoute(`/${routes[index]}`)
-                            }
-                          >
-                            {producto}
-                          </MenuItem>
-                        ))}
-                      </Menu>
-                    </React.Fragment>
-                  );
-                } else {
-                  return (
-                    <Button
-                      sx={{
-                        color: "#fff",
-                        fontFamily: '"Raleway", sans-serif',
-                      }}
-                      onClick={() => scrollToSection(item.toLowerCase())}
-                    >
-                      {item}
-                    </Button>
-                  );
-                }
-              })}
-            </Box>
-          </Toolbar>
-        </AppBar>
-        <nav>
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-              },
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </nav>
-        <Box component="main" sx={{ p: 3 }}>
-          <Toolbar />
+                    );
+                  }
+                })}
+              </Box>
+            </Toolbar>
+          </AppBar>
+          <nav>
+            <Drawer
+              container={container}
+              variant="temporary"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+              sx={{
+                display: { xs: "block", sm: "none" },
+                "& .MuiDrawer-paper": {
+                  boxSizing: "border-box",
+                  width: drawerWidth,
+                },
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </nav>
+          <Box component="main" sx={{ p: 3 }}>
+            <Toolbar />
+          </Box>
         </Box>
-      </Box>
-    </ThemeProvider>
+      </ThemeProvider>
+    </section>
   );
 }
 

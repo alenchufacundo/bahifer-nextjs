@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import TableData from "./components/TablaData";
+import TableDataMedida from "./components/TableDataMedida";
 
 const imgPlanilla = "/assets/images/products/calzadas/planilla.png";
 
@@ -35,7 +36,7 @@ function Calzadas() {
           <Box>
             <img
               src={imgPlanilla}
-              alt="planilla"
+              alt="planilla de tabla de bahifer de herramientas calzadas"
               style={{ width: "100%", height: "100%" }}
             />
           </Box>
@@ -43,7 +44,7 @@ function Calzadas() {
         <Grid
           item
           xs={12}
-          md={6}
+          md={3}
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -51,6 +52,9 @@ function Calzadas() {
           }}
         >
           <TableData />
+        </Grid>
+        <Grid item xs={12} md={3} marginTop={3}>
+          <TableDataMedida />
         </Grid>
       </Grid>
     </Container>

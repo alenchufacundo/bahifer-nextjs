@@ -1,5 +1,7 @@
 import { Box, Container } from "@mui/material";
 import TablaData from "./components/TablaData";
+import { calisuares } from "./utils/util";
+import PhotoGrid from "./components/PhotoGrid";
 
 function Calisuares() {
   return (
@@ -11,7 +13,7 @@ function Calisuares() {
       }}
     >
       <Box>
-        {/* <PhotoGrid elements={calisuares} /> */}
+        <PhotoGrid elements={calisuares} />
       </Box>
       <Box marginTop={3}>
         <TablaData />

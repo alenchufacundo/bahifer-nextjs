@@ -34,6 +34,18 @@ function Medicion() {
         </Grid>
         <Grid item xs={12}>
           <Typography
+            variant="h4"
+            sx={{
+              textAlign: "center",
+              fontFamily: '"Raleway", sans-serif',
+              color: "#3498db",
+            }}
+          >
+            FOTO GRID COLOCAR
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography
             variant="subtitle"
             sx={{
               textAlign: "center",

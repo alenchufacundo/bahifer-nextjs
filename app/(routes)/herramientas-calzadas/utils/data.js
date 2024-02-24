@@ -1,3 +1,27 @@
+export const cobalto = [
+  {
+    id: 1,
+    title: "BIT DE COBALTO REDONDO 18%",
+    imageUrl: "/assets/images/products/calzadas/bit-de-cobalto-redondo-18.png",
+    largeImageUrl:
+      "/assets/images/products/calzadas/bit-de-cobalto-redondo-18.png",
+  },
+  {
+    id: 2,
+    title: "BIT DE COBALTO 18%",
+    imageUrl: "/assets/images/products/calzadas/bit-de-cobalto-18.png",
+    largeImageUrl: "/assets/images/products/calzadas/bit-de-cobalto-18.png",
+  },
+  {
+    id: 3,
+    title: "CUCHILLA CONICA DE COBALTO 18%",
+    imageUrl:
+      "/assets/images/products/calzadas/cuchilla-conica-de-cobalto-18.jpg",
+    largeImageUrl:
+      "/assets/images/products/calzadas/cuchilla-conica-de-cobalto-18.jpg",
+  },
+];
+
 export const dataModelo = [
   { modelo: "110" },
   { modelo: "111" },

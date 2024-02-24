@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { insertos } from "./utils/utils";
 import Link from "next/link";
-import PhotoGrid from "./components/PhotoGrid";
+import PhotoGridOnly from "@/app/components/common/PhotoGridOnly";
 
 function Insertos() {
   return (
@@ -12,7 +12,7 @@ function Insertos() {
       }}
     >
       <Box>
-        <PhotoGrid elements={insertos} />
+        <PhotoGridOnly elements={insertos} />
       </Box>
       <Box sx={{ marginTop: "30px" }}>
         <Typography
@@ -38,7 +38,11 @@ function Insertos() {
             },
           }}
         >
-          <Link href="catalogo" passHref target="_blank">
+          <Link
+            href="https://www.iscar.com/products.aspx/countryid/27/productid/5435"
+            passHref
+            target="_blank"
+          >
             Ir al sitio oficial
           </Link>
         </Box>

@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { tornos } from "./utils/utils";
-import PhotoGrid from "@/app/components/common/PhotoGrid";
 import Link from "next/link";
+import PhotoGridOnly from "@/app/components/common/PhotoGridOnly";
 
 function Tornos() {
   return (
@@ -37,7 +37,7 @@ function Tornos() {
         </Typography>
       </Box>
       <Box>
-        <PhotoGrid elements={tornos} />
+        <PhotoGridOnly elements={tornos} />
       </Box>
       <Box
         sx={{

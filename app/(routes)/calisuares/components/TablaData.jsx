@@ -12,7 +12,7 @@ function createData(name, medidas1, medidas2, medidas3) {
 }
 
 const rows = [
-  createData("Pulgadas", "", "", ""),
+  createData("Milimetros", "", "", ""),
   createData("Medidas de calisuares", "6 - 7", "7 - 8", "8 - 9"),
   createData("Medidas de calisuares", "9 - 10", "10 - 11", "11 - 12"),
   createData("Medidas de calisuares", "12 - 14", "14 - 16", "16 - 18"),

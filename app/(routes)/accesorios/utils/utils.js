@@ -1,16 +1,26 @@
 export const accesorios = [
   {
     id: 1,
-    title: "Hoja esmeril ",
-    description: "Hoja de tela esmeril color azul",
+    title: "Cono reductor",
     imageUrl: "/assets/images/products/accesorios/cr405.png",
     largeImageUrl: "/assets/images/products/accesorios/cr405.png",
   },
   {
     id: 2,
-    title: "Hojas de Tela Abralox ",
-    description: "Hojas de Tela Abralox",
+    title: "Punto giratorio ",
     imageUrl: "/assets/images/products/accesorios/puntametal.png",
+    largeImageUrl: "/assets/images/products/accesorios/puntametal.png",
+  },
+  {
+    id: 3,
+    title: "Punto fijo ",
+    imageUrl: "/assets/images/products/accesorios/punto-fijo.png",
+    largeImageUrl: "/assets/images/products/accesorios/punto-fijo.png",
+  },
+  {
+    id: 4,
+    title: "Punto giratorio ",
+    imageUrl: "/assets/images/products/accesorios/espiga.png",
     largeImageUrl: "/assets/images/products/accesorios/puntametal.png",
   },
 ];

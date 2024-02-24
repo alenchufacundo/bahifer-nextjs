@@ -1,6 +1,8 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import TableData from "./components/TablaData";
 import TableDataMedida from "./components/TableDataMedida";
+import { cobalto } from "./utils/data";
+import PhotoGridOnly from "@/app/components/common/PhotoGridOnly";
 
 const imgPlanilla = "/assets/images/products/calzadas/planilla.png";
 
@@ -55,6 +57,18 @@ function Calzadas() {
         </Grid>
         <Grid item xs={12} md={3} marginTop={3}>
           <TableDataMedida />
+        </Grid>
+        <Grid item xs={12} md={12} marginTop={3}>
+          <Typography
+            variant="h5"
+            textAlign="center"
+            sx={{ fontFamily: '"Raleway", sans-serif' }}
+          >
+            Bits de cobalto
+          </Typography>
+          <Box sx={{ marginTop: "20px" }}>
+            <PhotoGridOnly elements={cobalto} />
+          </Box>
         </Grid>
       </Grid>
     </Container>

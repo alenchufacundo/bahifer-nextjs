@@ -31,4 +31,28 @@ export const mechas = [
     imageUrl: "/assets/images/products/mechas/fresa.png",
     largeImageUrl: "/assets/images/products/mechas/fresa.png",
   },
+  {
+    id: 5,
+    title: "AVELLANADORES",
+    description:
+      "Avellanador de norma DIN 335SC con vástago cilindrico. Para terminación de agujeros previos con chanfles o biseles en materiales varios. Uso en taladros, máquinas de banco y CNC.",
+    imageUrl: "/assets/images/products/mechas/avellanadores.jpg",
+    largeImageUrl: "/assets/images/products/mechas/avellanadores.jpg",
+  },
+  {
+    id: 6,
+    title: "BROCAS ANULARES",
+    description:
+      "Para terminación de agujeros previos con chanfles o biseles en materiales varios. Uso en taladros, máquinas de banco y CNC.",
+    imageUrl: "/assets/images/products/mechas/brocas-anulares.jpg",
+    largeImageUrl: "/assets/images/products/mechas/brocas-anulares.jpg",
+  },
+  {
+    id: 7,
+    title: "BROCAS ESCALONADAS",
+    description:
+      "Eliminan la necesidad de muchas mechas de distintas medidas. Perfora hierro, acero, bronce, cobre, inoxidable, aluminio, plástico, madera, fibra de vidrio, en espesores de hasta 5mm.",
+    imageUrl: "/assets/images/products/mechas/brocas-escalonadas.png",
+    largeImageUrl: "/assets/images/products/mechas/brocas-escalonadas.png",
+  },
 ];

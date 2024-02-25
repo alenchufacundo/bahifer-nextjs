@@ -66,7 +66,7 @@ function Calzadas() {
           >
             Bits de cobalto
           </Typography>
-          <Box sx={{ marginTop: "20px" }}>
+          <Box sx={{ marginTop: "40px" }}>
             <PhotoGridOnly elements={cobalto} />
           </Box>
         </Grid>

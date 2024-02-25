@@ -21,10 +21,11 @@ function Tornos() {
           }}
         >
           Maquinarias
-        </Typography>{" "}
+        </Typography>
         <Typography
           variant="body1"
           sx={{
+            marginTop: "30px",
             textAlign: "justify",
             fontStyle: "italic",
             fontFamily: '"Raleway", sans-serif',

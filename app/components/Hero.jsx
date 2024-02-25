@@ -17,7 +17,7 @@ export const Hero = () => {
         }}
         id="inicio"
       >
-        <Box item xs={12} sx={{ height: isMobile ? "30vh" : "60vh" }}>
+        <Box item xs={12} sx={{ height: isMobile ? "40vh" : "60vh" }}>
           <Carousel />
         </Box>
       </Container>

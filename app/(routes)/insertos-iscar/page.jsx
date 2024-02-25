@@ -32,6 +32,7 @@ function Insertos() {
             "& a": {
               color: "#fff",
               textDecoration: "none",
+              fontSize: "20px",
               fontFamily: '"Raleway", sans-serif',
               fontStyle: "italic",
               "&:hover": { color: "#3498db", textDecoration: "underline" },

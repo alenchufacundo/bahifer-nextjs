@@ -21,18 +21,13 @@ function Mechas() {
           textAlign: "center",
           "& a": {
             color: "#fff",
+            fontSize: "20px",
             textDecoration: "none",
             fontStyle: "italic",
             "&:hover": { color: "#3293D3", textDecoration: "underline" },
           },
         }}
       >
-        <Typography
-          variant="h4"
-          sx={{ fontFamily: '"Raleway", sans-serif', color: "#fff" }}
-        >
-          Más información
-        </Typography>
         <Link
           href="https://www.ezeta.com/categoria-producto/herramientas-normalizadas/"
           passHref

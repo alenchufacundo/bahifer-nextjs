@@ -10,15 +10,7 @@ function Medicion() {
         width: "95%",
       }}
     >
-      <Grid
-        container
-        spacing={4}
-        sx={{
-          marginTop: "30px",
-          marginLeft: "-15px",
-          marginBottom: "30px",
-        }}
-      >
+      <Grid container spacing={4}>
         <Grid item xs={12}>
           <Typography
             variant="h4"
